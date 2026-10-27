@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>口コミ獲得の仕組み比較</title>
+<style>
+[hidden]{display:none!important}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@700;800;900&display=swap');
+:root{--accent:#2B4C8A;--accentl:#EEF3FF;--sheet:#FFFFFF;--bg2:#F5F7FA;--ink:#1A1A1A;--ink3:#606060;--bord:#E5E5E5;--ground:#FFFFFF;--shadow:rgba(20,32,58,.16);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Sans',Meiryo,sans-serif;color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;word-break:auto-phrase;line-break:strict;overflow-wrap:break-word;}
+.deck{padding:24px 0;}
+.fit{margin:0 auto 24px;}
+.slide{position:relative;width:1200px;height:900px;background:var(--sheet);padding:36px 40px 40px;box-shadow:0 2px 18px var(--shadow);overflow:hidden;transform-origin:top left;display:flex;flex-direction:column;}
+.head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:4px solid var(--accent);padding-bottom:10px;flex:none;}
+.label{font-size:16px;font-weight:700;color:var(--accent);letter-spacing:.2em;}
+h2{font-size:34px;font-weight:900;line-height:1.25;margin-top:4px;}
+.legend{display:flex;gap:8px;padding-bottom:4px;white-space:nowrap;}
+.tg{display:inline-block;font-size:12.5px;font-weight:700;border-radius:4px;padding:1px 8px;white-space:nowrap;line-height:1.6;}
+.tg.g{background:var(--accent);color:#fff;}
+.tg.p{border:1.5px solid var(--accent);color:var(--accent);}
+.tg.o{border:1.5px dashed var(--ink3);color:var(--ink3);}
+.body{flex:1;min-height:0;display:grid;grid-template-columns:528px 1fr;gap:16px;padding-top:14px;}
+/* メンエス */
+.main{border:2.5px solid var(--accent);border-radius:10px;padding:11px 14px;display:flex;flex-direction:column;gap:6px;min-height:0;}
+.mt{display:flex;justify-content:space-between;align-items:center;}
+.mt h3{font-size:24px;font-weight:900;color:var(--accent);}
+.mlead{font-size:14.5px;line-height:1.55;font-weight:700;}
+.mlead b{color:var(--accent);}
+.mbox{background:var(--bg2);border-radius:6px;padding:6px 10px;font-size:12.5px;line-height:1.5;}
+.li{padding-left:1em;text-indent:-1em;}
+.mbox .k{display:block;font-size:12.5px;font-weight:900;color:var(--accent);letter-spacing:.06em;margin-bottom:1px;}
+.mbox b{color:var(--accent);}
+.mx{border-collapse:collapse;width:100%;font-size:12px;line-height:1.35;table-layout:fixed;}
+.mx th,.mx td{border-bottom:1px solid var(--bord);padding:3px 2px;text-align:center;vertical-align:middle;}
+.mx thead th{font-size:11.5px;font-weight:900;background:var(--bg2);line-height:1.25;}
+.mx thead th.vip{background:var(--accent);color:#fff;}
+.mx thead th.ex{color:var(--accent);}
+.mx td.f{text-align:left;font-weight:700;padding-left:4px;}
+.mx td.n{font-family:'Inter','Noto Sans JP',sans-serif;font-weight:800;font-size:11.5px;}
+.mx .o{color:var(--accent);font-weight:900;}
+.mx .x{color:#B8B8B8;}
+.mx .d{font-size:11px;font-weight:700;}
+.mnote{font-size:11.5px;line-height:1.5;color:var(--ink3);}
+/* 他サービス */
+.svc{display:flex;flex-direction:column;min-height:0;}
+.st{border-collapse:collapse;width:100%;font-size:12px;line-height:1.42;table-layout:fixed;}
+.st th,.st td{border-bottom:1px solid var(--bord);padding:3px 6px;text-align:left;vertical-align:top;}
+.st thead th{font-size:12px;font-weight:900;color:#fff;background:var(--accent);padding:5px 6px;}
+.st td.nm{font-weight:900;font-size:13.5px;line-height:1.3;}
+.st td.nm .tg{margin-top:3px;font-size:10.5px;padding:0 5px;}
+.st td.nm .cs{display:block;font-size:11px;color:var(--ink3);font-weight:700;}
+.st b{color:var(--accent);}
+.st tr.grp td{background:var(--bg2);font-size:11.5px;font-weight:900;color:var(--accent);padding:3px 6px;letter-spacing:.06em;}
+.pl{margin-top:10px;background:var(--accentl);border-radius:8px;padding:8px 14px;font-size:13px;line-height:1.5;}
+.pl .plk{font-size:14.5px;font-weight:900;color:var(--accent);margin-bottom:3px;}
+.pl b{color:var(--accent);}
+.foot{flex:none;margin-top:12px;background:var(--accentl);border-radius:8px;padding:9px 16px;font-size:14.5px;line-height:1.55;font-weight:700;}
+.foot b{color:var(--accent);}
+.src{position:absolute;left:40px;bottom:12px;font-size:11px;color:var(--ink3);}
+@page { size: 1200px 900px; margin: 0; }
+@media print {
+  html, body { margin: 0; padding: 0; background: #fff; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .deck{padding:0;}
+  .fit{width:auto !important;height:auto !important;margin:0 !important;}
+  .slide {
+    width: 1200px; height: 900px; margin: 0;
+    box-shadow: none; overflow: hidden; transform:none !important;
+    page-break-after: always; break-after: page;
+    page-break-inside: avoid; break-inside: avoid;
+  }
+  .fit:last-child .slide { page-break-after: avoid; break-after: avoid; }
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ground:#1b1d22; } }
+:root[data-theme="dark"]{ --ground:#1b1d22; }
+</style>
+</head>
+<body>
+<div class="deck">
+<div class="fit"><section class="slide">
+  <div class="head">
+    <div><div class="label">新規メディア ｜ 口コミ獲得の調査</div><h2>口コミを書いてもらう仕組みの比較</h2></div>
+    <div class="legend"><span class="tg g">書くと読める型</span><span class="tg p">ポイント型</span><span class="tg o">その他</span></div>
+  </div>
+  <div class="body">
+
+    <!-- メンエス -->
+    <div class="main">
+      <div class="mt"><h3>メンエス</h3><span class="tg g">書くと読める型</span></div>
+      <div class="mlead">口コミを書くと<b>「閲覧日数」</b>がもらえ、その間は全文読める、報酬は<b>「読む権利」</b>。<b>VIP会員のみ</b>口コミ投稿不要で読める</div>
+      <div class="mbox"><span class="k">閲覧日数のもらい方・減り方</span>
+        <div class="li">・口コミ1件で<b>7〜25日</b>。運営が質で決める（400字以上・名指し・具体的）。短いと7日未満も</div>
+        <div class="li">・店の退店・閉店・移転の情報を送っても日数がもらえる</div>
+        <div class="li">・付与日から毎日減る（ログインしなくても）。0日で再投稿が必要</div>
+        <div class="li">・日数がない人は冒頭数行だけ。続きと点数・評価はモザイク</div></div>
+      <table class="mx">
+        <colgroup><col style="width:31%"><col><col><col><col><col></colgroup>
+        <thead><tr><th style="text-align:left;padding-left:4px">会員区分</th><th>無料会員</th><th class="ex">EX会員<br><span style="font-weight:700;font-size:10px">（無料）</span></th><th>エコノミー</th><th>プレミアム</th><th class="vip">VIP</th></tr></thead>
+        <tr><td class="f">月額（税込）</td><td class="n">0円</td><td class="n">0円</td><td class="n">1,980円</td><td class="n">2,980円</td><td class="n">4,980円</td></tr>
+        <tr><td class="f">初期費用（税込）</td><td class="n">0円</td><td class="n">0円</td><td class="n">9,800円</td><td class="n">9,800円</td><td class="n">9,800円</td></tr>
+        <tr><td class="f">通常の口コミ</td><td class="d">日数で読む</td><td class="d">日数で読む</td><td class="d">日数で読む</td><td class="d">日数で読む</td><td class="o">投稿不要</td></tr>
+        <tr><td class="f">プレミアム口コミ※</td><td class="x">×</td><td class="d">チケットで<br>月5件</td><td class="d">日数で読む</td><td class="d">日数で読む</td><td class="o">○</td></tr>
+        <tr><td class="f">投稿者の履歴・コメント</td><td class="x">×</td><td class="x">×</td><td class="o">○</td><td class="o">○</td><td class="o">○</td></tr>
+        <tr><td class="f">会員同士のDM</td><td class="x">×</td><td class="o">○</td><td class="o">○</td><td class="o">○</td><td class="o">○</td></tr>
+        <tr><td class="f">掲示板の質問用ポイント</td><td class="x">×</td><td class="x">×</td><td class="d">毎月200P</td><td class="d">毎月300P</td><td class="d">毎月500P</td></tr>
+        <tr><td class="f">投稿日・新着・検索</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="o">○</td><td class="o">○</td></tr>
+        <tr><td class="f">VIP限定の掲示板</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td class="o">○</td></tr>
+        <tr><td class="f">過激口コミのリスト</td><td class="x">×</td><td class="o">○</td><td class="x">×</td><td class="o">○</td><td class="o">○</td></tr>
+      </table>
+      <div class="mbox"><span class="k">バッジ・ポイント（どれも現金・割引には換えられない）</span>
+        <div class="li">・<b>感謝バッジ</b>：役立つ情報をくれた人に会員が贈る（毎月 無料1個※口コミ3件以上・有料2個）</div>
+        <div class="li">・<b>EX会員</b>：月にバッジ5個で昇格、月3個で継続。無料のまま表の機能が使える</div>
+        <div class="li">・<b>メンエスポイント</b>：掲示板のベストアンサーでもらえ、称号ランクが上がる</div></div>
+      <div class="mnote">※運営が選んだ信憑性の高い口コミ。解約後の再加入は初期費用が再度かかる。有料でも日数の付与が「優遇」されるだけで、VIP以外は投稿が必要。ほかに地方特別会員（月980円）</div>
+    </div>
+
+    <!-- 他サービス -->
+    <div class="svc">
+      <table class="st">
+        <colgroup><col style="width:19%"><col style="width:34%"><col style="width:21%"><col style="width:26%"></colgroup>
+        <thead><tr><th>サービス</th><th>口コミの集め方</th><th>読む条件</th><th>書き手の報酬・使い道</th></tr></thead>
+        <tr class="grp"><td colspan="4">ポイント型（美容ポータル）</td></tr>
+        <tr><td class="nm">口コミ広場</td><td>体験＋結果の2本で<b>5,000円</b>、症例写真3種で＋5,000円。予約経由は施術額の10%を付与</td><td>誰でも無料</td><td>ポイント（1pt＝1円）。施術代の会計に使える。施術後は<b>現金化も可</b></td></tr>
+        <tr><td class="nm">トリビュー</td><td>公開で500pt＋ダウンタイム終了で500pt。経過つきは最大<b>10,000pt</b>を付与</td><td>誰でも無料</td><td>ポイント（1pt＝1円）。トリビュー経由の会計のみ。現金化不可</td></tr>
+        <tr><td class="nm">カンナムオンニ</td><td>BA写真必須。経過なし500P、経過ありの整形<b>10,000P</b>。レシート認証で＋500Pを付与</td><td>無料登録</td><td>ポイント（1P＝1円）。施術代の会計に使える。約60日で失効</td></tr>
+        <tr class="grp"><td colspan="4">書くと読める型</td></tr>
+        <tr><td class="nm">OpenWork</td><td>1件（500字以上）で<b>全件の閲覧権を期間つきで付与</b>。立上げ時は3,000円クーポンを付与</td><td>次のどれか<br>・口コミを投稿<br>・有料 月1,980円<br>・履歴書を登録</td><td>お金なし。<b>全口コミを読める権利</b></td></tr>
+        <tr class="grp"><td colspan="4">その他</td></tr>
+        <tr><td class="nm">ステータス型</td><td>食べログ＝経験者の評価を重く反映／Yelp＝審査でバッジを付与／Google＝ポイント・レベルを付与</td><td>誰でも無料</td><td>お金なし。<b>称号・バッジ</b>。Yelp・Google＝限定イベント招待など</td></tr>
+        <tr><td class="nm">予約者限定型</td><td>ホットペッパービューティー・一休・じゃらん＝予約して来店した人だけ</td><td>誰でも無料</td><td>書くことへの報酬は確認できず</td></tr>
+      </table>
+      <div class="pl"><div class="plk">まとめ：新規メディアの方針（案）</div>
+        <div class="li">・<b>メンエス型</b>：口コミを書くと、他の人の口コミが読める。ポイント型は取らない（競合ポータルと差別化が図りにくく、ポイント付与率が差別化ポイントとなり、有効ではないため）</div>
+        <div class="li">・<b>対象</b>：カウンセリングと施術の両方。どの段階の口コミかをバッジで表示</div>
+        <div class="li">・<b>サクラ防止</b>：カウンセリング＝見積書、施術＝領収書。どちらも本人確認書類とセットで提出必須</div>
+        <div class="li">・<b>立上げ</b>：口コミ数を確保する</div>
+        <div class="li" style="padding-left:2em">・「編集部まとめ」（SNSから抽出）で掲載量を確保</div>
+        <div class="li" style="padding-left:2em">・カウンセリングの口コミ投稿も蓄積、他サイトにない見積書を公開し、メディアの価値向上にも繋げる（公開時に患者名など個人情報は自動モザイク必要）</div>
+      </div>
+    </div>
+  </div>
+  <div class="src">調査日 2026-10-16〜10-27 ／ 公式ページ中心・一部二次情報（カンナムオンニの口コミポイント、OpenWorkの期間）</div>
+</section></div>
+</div>
+<script>
+(function(){
+  function fit(){
+    var w=Math.min(window.innerWidth-32,1200), s=w/1200;
+    document.querySelectorAll('.fit').forEach(function(f){
+      var sl=f.querySelector('.slide');
+      if(s<1){ sl.style.transform='scale('+s+')'; f.style.width=(1200*s)+'px'; f.style.height=(900*s)+'px'; }
+      else { sl.style.transform=''; f.style.width='1200px'; f.style.height='900px'; }
+    });
+  }
+  window.addEventListener('resize',fit); fit();
+})();
+</script>
+</body>
+</html>
